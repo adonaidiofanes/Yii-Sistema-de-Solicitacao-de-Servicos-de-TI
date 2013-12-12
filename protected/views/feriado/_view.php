@@ -9,6 +9,10 @@
 	<?php echo CHtml::link(CHtml::encode($data->idFeriado), array('view', 'id'=>$data->idFeriado)); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('nomeFeriado')); ?>:</b>
+	<?php echo CHtml::encode($data->nomeFeriado); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dtFeriado')); ?>:</b>
 	<?php echo CHtml::encode($data->dtFeriado); ?>
 	<br />

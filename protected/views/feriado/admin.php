@@ -4,12 +4,12 @@
 
 $this->breadcrumbs=array(
 	'Feriados'=>array('index'),
-	'Manage',
+	'Gerenciar',
 );
 
 $this->menu=array(
-	array('label'=>'List Feriado', 'url'=>array('index')),
-	array('label'=>'Create Feriado', 'url'=>array('create')),
+	array('label'=>'Listar Feriados', 'url'=>array('index')),
+	array('label'=>'Criar Feriado', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,15 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Feriados</h1>
+<h1>Gerenciar feriados</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+<ul>
+  <li><strong>Feriado parcial</strong> significa se o feriado vai ser meio período ou período completo.<br><small>Ex: Feriado parcial começa às 08:00 e termina 12:00</small></li>  
+</ul>
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Busca avançada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,11 +46,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'idFeriado',
-		'dtFeriado',
+		'nomeFeriado',
+                array(
+                    'name'  => 'dtFeriado',
+                    'value' => 'date("d/m/Y",strtotime($data->dtFeriado))'
+                ),
 		'horaInicial',
 		'horaFinal',
-		'parcial',
+		//'parcial',
+                array('name' => 'parcial', 'value' => '$data->verificarParcial($data->parcial)',  'filter' => array('0' => 'Não', '1' => 'Sim') ),
 		array(
 			'class'=>'CButtonColumn',
 		),

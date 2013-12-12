@@ -22,6 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'idFeriado',
+		'nomeFeriado',
 		'dtFeriado',
 		'horaInicial',
 		'horaFinal',

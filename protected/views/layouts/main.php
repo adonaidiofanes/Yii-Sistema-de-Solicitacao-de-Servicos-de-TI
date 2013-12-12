@@ -40,6 +40,7 @@
                                 # TAREFAS
 				array('label'=>"OS's",   'url'=>array('/tarefas/'), 'visible'=>!Yii::app()->user->isGuest && !Yii::app()->user->getState('isAdmin')),
                                 array('label'=>"OS's",   'url'=>array('/tarefas/admin'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
+                                array('label'=>"Gerenciar Feriados",   'url'=>array('/feriado/admin'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),
                                 
                                 #USUARIOS E SETORES
                                 array('label'=>'Usuários',  'url'=>array('/usuarios/admin'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->getState('isAdmin')),

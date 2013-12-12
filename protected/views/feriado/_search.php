@@ -17,6 +17,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'nomeFeriado'); ?>
+		<?php echo $form->textField($model,'nomeFeriado',array('size'=>60,'maxlength'=>80)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'dtFeriado'); ?>
 		<?php echo $form->textField($model,'dtFeriado'); ?>
 	</div>

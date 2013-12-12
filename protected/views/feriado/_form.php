@@ -26,11 +26,24 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'nomeFeriado'); ?>
+		<?php echo $form->textField($model,'nomeFeriado',array('size'=>60,'maxlength'=>80)); ?>
+		<?php echo $form->error($model,'nomeFeriado'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'dtFeriado'); ?>
 		<?php echo $form->textField($model,'dtFeriado'); ?>
 		<?php echo $form->error($model,'dtFeriado'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'parcial'); ?>
+		<?php //echo $form->textField($model,'parcial'); ?>
+                <?php echo $form->dropDownList($model, 'parcial', array('0'=>'Não', '1'=>'Sim')); ?>
+		<?php echo $form->error($model,'parcial'); ?>
+	</div>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'horaInicial'); ?>
 		<?php echo $form->textField($model,'horaInicial'); ?>
@@ -41,12 +54,6 @@
 		<?php echo $form->labelEx($model,'horaFinal'); ?>
 		<?php echo $form->textField($model,'horaFinal'); ?>
 		<?php echo $form->error($model,'horaFinal'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'parcial'); ?>
-		<?php echo $form->textField($model,'parcial'); ?>
-		<?php echo $form->error($model,'parcial'); ?>
 	</div>
 
 	<div class="row buttons">

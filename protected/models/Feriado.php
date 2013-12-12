@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'feriado':
  * @property integer $idFeriado
+ * @property string $nomeFeriado
  * @property string $dtFeriado
  * @property string $horaInicial
  * @property string $horaFinal
@@ -28,13 +29,36 @@ class Feriado extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idFeriado, dtFeriado, horaInicial, horaFinal', 'required'),
-			array('idFeriado, parcial', 'numerical', 'integerOnly'=>true),
+			array('nomeFeriado, dtFeriado', 'required'),
+			array('parcial', 'numerical', 'integerOnly'=>true),
+			array('nomeFeriado', 'length', 'max'=>80),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idFeriado, dtFeriado, horaInicial, horaFinal, parcial', 'safe', 'on'=>'search'),
+			array('idFeriado, nomeFeriado, dtFeriado, horaInicial, horaFinal, parcial', 'safe', 'on'=>'search'),
+                        array('parcial', 'ext.YiiConditionalValidator',
+                                'if' => array(
+                                    array('parcial', 'compare', 'compareValue'=>'1'),
+                                ),
+                                'then' => array( array('horaInicial, horaFinal', 'required') ),
+                            ),
 		);
 	}
+        
+/*
+public function rules()
+{
+    return array(
+        array('customer_type', 'ext.YiiConditionalValidator',
+            'if' => array(
+                array('customer_type', 'compare', 'compareValue'=>"active"),
+            ),
+            'then' => array(
+                array('birthdate, city', 'required'),
+            ),
+        ),
+    );
+}
+ *  */
 
 	/**
 	 * @return array relational rules.
@@ -54,6 +78,7 @@ class Feriado extends CActiveRecord
 	{
 		return array(
 			'idFeriado' => 'Id Feriado',
+			'nomeFeriado' => 'Nome Feriado',
 			'dtFeriado' => 'Dt Feriado',
 			'horaInicial' => 'Hora Inicial',
 			'horaFinal' => 'Hora Final',
@@ -80,6 +105,7 @@ class Feriado extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idFeriado',$this->idFeriado);
+		$criteria->compare('nomeFeriado',$this->nomeFeriado,true);
 		$criteria->compare('dtFeriado',$this->dtFeriado,true);
 		$criteria->compare('horaInicial',$this->horaInicial,true);
 		$criteria->compare('horaFinal',$this->horaFinal,true);
@@ -89,6 +115,14 @@ class Feriado extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function verificarParcial($str){
+          if( $str == '1' ){
+            return 'Sim';
+          } else {
+            return 'Não';
+          }
+        }
 
 	/**
 	 * Returns the static model of the specified AR class.
