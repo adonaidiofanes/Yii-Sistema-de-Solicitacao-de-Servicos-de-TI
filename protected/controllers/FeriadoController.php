@@ -68,6 +68,11 @@ class FeriadoController extends Controller
 		if(isset($_POST['Feriado']))
 		{
 			$model->attributes=$_POST['Feriado'];
+                        print '<pre>';
+                        print_r($model->attributes);
+                        print '</pre>';
+
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idFeriado));
 		}

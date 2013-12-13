@@ -8,13 +8,19 @@
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/estilos.css" media="screen" />
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+        
+        <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+        <?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>
+        
+        <?php Yii::app()->clientScript->registerScriptFile('js/scripts.js'); ?>
+        
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -27,7 +33,7 @@
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" /> <?php echo CHtml::encode(Yii::app()->name); ?>
             
             <?php if(!Yii::app()->user->isGuest):?>
-            <br /> Bem vindo <strong><?php echo Yii::app()->user->usuarioLogado->nome; //echo Yii::app()->user->getState('usuarioLogado')->nome; ?></strong>
+            <br /> Bem vindo <strong><?php echo Yii::app()->user->usuarioLogado->nome; ?></strong>
             <?php endif; ?>
           </div>
 	</div><!-- header -->

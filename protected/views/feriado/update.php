@@ -5,17 +5,17 @@
 $this->breadcrumbs=array(
 	'Feriados'=>array('index'),
 	$model->idFeriado=>array('view','id'=>$model->idFeriado),
-	'Update',
+	'Atualizar',
 );
 
 $this->menu=array(
-	array('label'=>'List Feriado', 'url'=>array('index')),
-	array('label'=>'Create Feriado', 'url'=>array('create')),
-	array('label'=>'View Feriado', 'url'=>array('view', 'id'=>$model->idFeriado)),
-	array('label'=>'Manage Feriado', 'url'=>array('admin')),
+	array('label'=>'Listar Feriado', 'url'=>array('index')),
+	array('label'=>'Criar Feriado', 'url'=>array('create')),
+	array('label'=>'Ver Feriado', 'url'=>array('view', 'id'=>$model->idFeriado)),
+	array('label'=>'Gerenciar Feriados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Feriado <?php echo $model->idFeriado; ?></h1>
+<h1>Atualizar Feriado <?php echo $model->idFeriado; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

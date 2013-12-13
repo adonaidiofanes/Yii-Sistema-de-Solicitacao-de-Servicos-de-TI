@@ -32,6 +32,7 @@ class Feriado extends CActiveRecord
 			array('nomeFeriado, dtFeriado', 'required'),
 			array('parcial', 'numerical', 'integerOnly'=>true),
 			array('nomeFeriado', 'length', 'max'=>80),
+			array('horaFinal, horaInicial', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idFeriado, nomeFeriado, dtFeriado, horaInicial, horaFinal, parcial', 'safe', 'on'=>'search'),
@@ -44,22 +45,6 @@ class Feriado extends CActiveRecord
 		);
 	}
         
-/*
-public function rules()
-{
-    return array(
-        array('customer_type', 'ext.YiiConditionalValidator',
-            'if' => array(
-                array('customer_type', 'compare', 'compareValue'=>"active"),
-            ),
-            'then' => array(
-                array('birthdate, city', 'required'),
-            ),
-        ),
-    );
-}
- *  */
-
 	/**
 	 * @return array relational rules.
 	 */
@@ -78,8 +63,8 @@ public function rules()
 	{
 		return array(
 			'idFeriado' => 'Id Feriado',
-			'nomeFeriado' => 'Nome Feriado',
-			'dtFeriado' => 'Dt Feriado',
+			'nomeFeriado' => 'Nome do Feriado',
+			'dtFeriado' => 'Data do Feriado',
 			'horaInicial' => 'Hora Inicial',
 			'horaFinal' => 'Hora Final',
 			'parcial' => 'Parcial',

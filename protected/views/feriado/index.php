@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Feriado', 'url'=>array('create')),
-	array('label'=>'Manage Feriado', 'url'=>array('admin')),
+	array('label'=>'Criar Feriado', 'url'=>array('create')),
+	array('label'=>'Gerenciar Feriado', 'url'=>array('admin')),
 );
 ?>
 

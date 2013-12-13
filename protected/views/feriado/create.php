@@ -4,15 +4,15 @@
 
 $this->breadcrumbs=array(
 	'Feriados'=>array('index'),
-	'Create',
+	'Criar',
 );
 
 $this->menu=array(
-	array('label'=>'List Feriado', 'url'=>array('index')),
-	array('label'=>'Manage Feriado', 'url'=>array('admin')),
+	array('label'=>'Listar Feriados', 'url'=>array('index')),
+	array('label'=>'Gerenciar Feriados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Feriado</h1>
+<h1>Criar Feriado</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

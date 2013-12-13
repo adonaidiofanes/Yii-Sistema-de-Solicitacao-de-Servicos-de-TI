@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Feriado', 'url'=>array('index')),
-	array('label'=>'Create Feriado', 'url'=>array('create')),
-	array('label'=>'Update Feriado', 'url'=>array('update', 'id'=>$model->idFeriado)),
-	array('label'=>'Delete Feriado', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idFeriado),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Feriado', 'url'=>array('admin')),
+	array('label'=>'Listar Feriados', 'url'=>array('index')),
+	array('label'=>'Criar Feriado', 'url'=>array('create')),
+	array('label'=>'Editar Feriado', 'url'=>array('update', 'id'=>$model->idFeriado)),
+	array('label'=>'Apagar Feriado', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idFeriado),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Gerenciar Feriado', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Feriado #<?php echo $model->idFeriado; ?></h1>
+<h1>Ver Feriado #<?php echo $model->idFeriado; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
